@@ -21,10 +21,8 @@ module.exports = {
   plugins: ['react-refresh', "prettier",],
   rules: {
     "prettier/prettier": "error",
-    'react-refresh/only-export-components': [
-      'warn',
-      { allowConstantExport: true },
-    ],
+    'react-refresh/only-export-components': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
+    '@typescript-eslint/no-explicit-any': 'off'
   },
 }
