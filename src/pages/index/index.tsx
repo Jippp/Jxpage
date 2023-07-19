@@ -5,7 +5,7 @@ import { pageTabs } from "@/config/routeConfig";
 // import Footer from '@/components/footer'
 import { importUrl } from "@/utils/path";
 
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 interface IndexProps {
   children: React.ReactNode;
@@ -53,8 +53,12 @@ const ContainerBgItem = styled.div<{ idx: number }>`
     background-repeat: no-repeat;
     background-position: 50% 50%;
     background-size: cover;
-    background-image: url(${({ idx }) =>
-      importUrl(`/src/assets/images/home_page_${idx}.png`)});
+    ${({ idx }) => css`
+      background-image: url(${importUrl(
+        `/src/assets/images/home_page_${idx}.png`,
+      )});
+    `}
+
     background-attachment: fixed;
   }
   .parallax-content {
