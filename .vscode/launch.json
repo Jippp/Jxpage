@@ -5,12 +5,42 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Launch via NPM",
+      "request": "launch",
+      "runtimeArgs": [
+        "run-script",
+        "commit",
+        // 调试的文件是软连接过来的
+        "--preserve-symlinks",
+      ],
+      // 多个调试时用来分组的
+      "presentation": {
+        "hidden": false,
+        "group": "launch scripts",
+        "order": 1
+      },
+      // 执行环境，PATH中的
+      "runtimeExecutable": "npm",
+      // 跳过的文件
+      "skipFiles": [
+        // node内部文件
+        "<node_internals>/**"
+      ],
+      "type": "node"
+    },
+    {
       "type": "chrome",
       "request": "launch",
       "name": "Launch Chrome against localhost",
       "runtimeArgs": [
         "--auto-open-devtools-for-bars"
       ],
+      // 多个调试时用来分组的
+      "presentation": {
+        "hidden": false,
+        "group": "launch chrome",
+        "order": 1
+      },
       "userDataDir": false,
       "url": "http://localhost:3001",
       "webRoot": "workspaceFolder"

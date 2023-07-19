@@ -1,9 +1,10 @@
-import { FC } from 'react'
+import { FC } from "react";
+
+// import pageRouteConfigs from '@/config/pageRoutes'
+// import pageTo from '@/utils/pageTo'
 
 const Home: FC = () => {
-  return (
-    <>这里是首页哦</>
-  )
-}
+  return <>home</>;
+};
 
-export default Home
+export default Home;
