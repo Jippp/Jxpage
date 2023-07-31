@@ -1,0 +1,10 @@
+Progress: resolved 0, reused 1, downloaded 0, added 0
+Progress: resolved 55, reused 54, downloaded 0, added 0
+Progress: resolved 517, reused 494, downloaded 0, added 0
+Packages: +2 -1
+++-
+
+devDependencies:
++ jquery 3.7.0
+
+Progress: resolved 602, reused 579, downloaded 1, added 2, done

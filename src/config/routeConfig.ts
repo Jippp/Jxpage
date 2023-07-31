@@ -10,10 +10,10 @@ export const MESSAGE = "/message";
 export const TIME = "/time";
 
 export const pageTabs = [
-  {
-    title: "首页",
-    path: HOME,
-  },
+  // {
+  //   title: "首页",
+  //   path: HOME,
+  // },
   {
     title: "打卡",
     path: CLOCKIN,
