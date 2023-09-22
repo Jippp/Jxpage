@@ -1,0 +1,6 @@
+{
+  // 保证KeepAlive缓存的稳定性
+  "plugins": [
+    "react-activation/babel"
+  ]
+}

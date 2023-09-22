@@ -1,14 +1,14 @@
-import { ReactNode, Component } from 'react'
+import { ReactNode, Component } from "react";
 
 interface ErrorBoundaryProps {
   fallback: string | ReactNode;
-  children: ReactNode
+  children: ReactNode;
 }
 
 class ErrorBoundary extends Component {
-  declare props: ErrorBoundaryProps
-  declare state: { hasError: boolean }
-  
+  declare props: ErrorBoundaryProps;
+  declare state: { hasError: boolean };
+
   constructor(props: ErrorBoundaryProps) {
     super(props);
     this.state = { hasError: false };
@@ -29,4 +29,4 @@ class ErrorBoundary extends Component {
   }
 }
 
-export default ErrorBoundary
+export default ErrorBoundary;

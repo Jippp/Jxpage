@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import { useMemoizedFn } from "ahooks";
 
 /**
  * 跳转到指定路径
@@ -6,7 +7,7 @@ import { useNavigate } from "react-router-dom";
  */
 const usePageTo = () => {
   const navigate = useNavigate();
-  return (path: string) => navigate(path);
+  return useMemoizedFn((path: string) => navigate(path));
 };
 
 export default usePageTo;

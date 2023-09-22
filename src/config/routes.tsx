@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 
-import PageItem from "@/pages/commons/pageItem";
+import PageItem from "@/components/commons/pageItem";
 import pageRouteConfigs from "./pageRoutes";
 
 const routeConfigs: RouteObject[] = [
@@ -11,7 +11,7 @@ const routeConfigs: RouteObject[] = [
   ...pageRouteConfigs,
   {
     path: "*",
-    element: <PageItem acComp={() => import("@/pages/commons/404")} />,
+    element: <PageItem acComp={() => import("@/components/commons/404")} />,
   },
 ];
 

@@ -1,6 +1,6 @@
 import { RouteObject } from "react-router-dom";
 
-import PageItem from "@/pages/commons/pageItem";
+import PageItem from "@/components/commons/pageItem";
 import { LOGIN, CLOCKIN, MESSAGE, TIME } from "./routeConfig";
 
 const pageRouteConfigs: RouteObject[] = [

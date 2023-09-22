@@ -1,8 +1,8 @@
 import { useRoutes } from "react-router-dom";
 
 import routeConfigs from "@/config/routes";
-import ErrorBoundary from "@/pages/commons/errorBoundary";
-import ErrorPage from "@/pages/commons/error";
+import ErrorBoundary from "@/components/commons/errorBoundary";
+import ErrorPage from "@/components/commons/error";
 import Index from "@/pages/index";
 
 function App() {

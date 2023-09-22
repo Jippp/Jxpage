@@ -1,5 +1,5 @@
-import { FC } from "react";
-import { Carousel, CarouselProps } from "antd";
+import { FC, useRef } from "react";
+import { ConfigProvider, Carousel, CarouselProps } from "antd";
 
 import Styled from "styled-components";
 
@@ -15,9 +15,32 @@ const SimpleSlider: FC<SliderProps & CarouselProps> = ({
   children,
   ...restProps
 }) => {
+  const carouselRef = useRef(null);
+
   return (
     <Container width={width} height={height}>
-      <Carousel {...restProps}>{children}</Carousel>
+      <ConfigProvider
+        theme={{
+          components: {
+            Carousel: {
+              dotActiveWidth: 10,
+              dotHeight: 60,
+              dotWidth: 20,
+            },
+          },
+        }}
+      >
+        <Carousel
+          dotPosition="right"
+          dots={{
+            className: "simple-slider-dots",
+          }}
+          ref={carouselRef}
+          {...restProps}
+        >
+          {children}
+        </Carousel>
+      </ConfigProvider>
     </Container>
   );
 };
@@ -25,22 +48,36 @@ const SimpleSlider: FC<SliderProps & CarouselProps> = ({
 export default SimpleSlider;
 
 const Container = Styled.div<Pick<SliderProps, "height" | "width">>`
-  width: ${({ width }) => width || "500px"};
-  height: ${({ height }) => height || ""};
+  width: ${({ width }) => width || "100vw"};
+  height: ${({ height }) => height || "100vh"};
 
+  /* 默认样式 */
+  .ant-carousel {
+    .slick-vertical .slick-slide {
+      border: none;
+    }
+  }
   .simple-slider-dots {
-    right: 200px;
-    width: 10px;
-    height: 100px;
-    transform: rotate(-45deg);
+    right: 10%;
     li {
+      transform: rotate(60deg);
+      margin: 50% 0;
       button {
-        width: 10px;
-        height: 100px;
+        border-radius: 10px;
         &::before {
           display: none;
         }
       }
+
+      /* 选中样式 */
+      /* &.slick-active {
+        width: 10px;
+        height: 60px;
+        button {
+          width: 10px;
+          height: 60px;
+        }
+      } */
     }
   }
 `;

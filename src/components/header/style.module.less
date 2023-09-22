@@ -2,25 +2,29 @@
   position: absolute;
   top: 0;
   width: 100%;
-  height: 120px;
+  height: 60px;
   background-color: rgba(204, 204, 204, .5);
   backdrop-filter: blur(6px);
-  .header-container-content {
+  z-index: 9;
+  .header-content {
     width: 100%;
     height: 100%;
     position: absolute;
     top: 0;
     color: #fff;
-    font-size: 30px;
+    font-size: 18px;
     display: flex;
     justify-content: center;
     align-items: center;
-    .header-container-content-item {
+    .header-item {
       margin-right: 20px;
       cursor: pointer;
       &:last-of-type {
         margin-right: 0;
       }
+    }
+    .header-item-active {
+      color: #000;
     }
   }
 }
