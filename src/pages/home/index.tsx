@@ -18,14 +18,14 @@ const Home: FC = () => {
         点击tab之后进入不同的页面，页面背景就是之前的背景
       */}
       {showTabs.map(({ title, path, bgImg }) => (
-        <ContainerBgItem key={path} bg={bgImg!}>
+        <ContainerBgItem key={path} bg={bgImg!} className="blurBg">
           <div className="content" onClick={() => handlePageTo(path)}>
-            <div className="content-desc">
+            <code className="content-desc blurGlass">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
               sapiente nesciunt et vero modi ipsa illo a, asperiores,
               exercitationem optio consequatur tenetur nostrum aliquam dicta sit
               repellat ullam impedit quo.
-            </div>
+            </code>
             <div className="content-title">{title}</div>
           </div>
         </ContainerBgItem>
@@ -40,27 +40,26 @@ const ContainerBgItem = styled.div<{ bg: string }>`
   position: relative;
   width: 100%;
   height: 100vh;
-  background-repeat: no-repeat;
-  background-position: 50% 50%;
-  background-size: cover;
   ${({ bg }) => css`
     background-image: url(${bg});
   `}
   .content {
     cursor: pointer;
     position: absolute;
+    left: 16px;
     bottom: 40%;
     width: 100%;
     display: flex;
     align-items: center;
+    z-index: 1;
     .content-desc {
       width: 60%;
       height: 40vh;
-      background-color: rgba(255, 255, 255, 0.5);
-      box-shadow: 0 0 15px 10px rgba(255, 255, 255, 0.5);
-      transition: box-shadow 0.5s;
+      border-radius: 8px;
+      transition: all 0.5s;
       &:hover {
-        box-shadow: 0 0 10px 5px rgba(255, 255, 255, 0.8);
+        transform: translate(2px, 2px);
+        box-shadow: 8px 8px 10px 8px rgba(0, 0, 0, 0.5);
       }
     }
     .content-title {
