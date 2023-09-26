@@ -1,12 +1,13 @@
-import { lazy } from "react";
 import { RouteObject } from "react-router-dom";
+
+import delayLazy from "@/utils/delayLazy";
 
 import { LOGIN, CLOCKIN, MESSAGE, TIME } from "./routeConfig";
 
-const LoginPage = lazy(() => import("@/pages/login"));
-const ClockInPage = lazy(() => import("@/pages/clockIn"));
-const MessagePage = lazy(() => import("@/pages/message"));
-const TimePage = lazy(() => import("@/pages/time"));
+const LoginPage = delayLazy(() => import("@/pages/login"));
+const ClockInPage = delayLazy(() => import("@/pages/clockIn"));
+const MessagePage = delayLazy(() => import("@/pages/message"));
+const TimePage = delayLazy(() => import("@/pages/time"));
 
 const pageRouteConfigs: RouteObject[] = [
   {

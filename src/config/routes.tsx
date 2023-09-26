@@ -1,10 +1,11 @@
-import { lazy } from "react";
 import { RouteObject } from "react-router-dom";
+
+import delayLazy from "@/utils/delayLazy";
 
 import pageRouteConfigs from "./pageRoutes";
 
-const HomePage = lazy(() => import("@/pages/home"));
-const ErrorPage = lazy(() => import("@/components/commons/404"));
+const HomePage = delayLazy(() => import("@/pages/home"));
+const ErrorPage = delayLazy(() => import("@/components/commons/404"));
 
 const routeConfigs: RouteObject[] = [
   {
