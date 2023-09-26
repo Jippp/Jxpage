@@ -1,28 +1,29 @@
+import { lazy } from "react";
 import { RouteObject } from "react-router-dom";
 
-import PageItem from "@/components/commons/pageItem";
 import { LOGIN, CLOCKIN, MESSAGE, TIME } from "./routeConfig";
+
+const LoginPage = lazy(() => import("@/pages/login"));
+const ClockInPage = lazy(() => import("@/pages/clockIn"));
+const MessagePage = lazy(() => import("@/pages/message"));
+const TimePage = lazy(() => import("@/pages/time"));
 
 const pageRouteConfigs: RouteObject[] = [
   {
     path: LOGIN,
-    element: <PageItem acComp={() => import("@/pages/login")} />,
-    // element: <LoginPage />,
+    element: <LoginPage />,
   },
   {
     path: CLOCKIN,
-    element: <PageItem acComp={() => import("@/pages/clockIn")} />,
-    // element: <ClockInPage />,
+    element: <ClockInPage />,
   },
   {
     path: MESSAGE,
-    element: <PageItem acComp={() => import("@/pages/message")} />,
-    // element: <MessagePage />,
+    element: <MessagePage />,
   },
   {
     path: TIME,
-    element: <PageItem acComp={() => import("@/pages/time")} />,
-    // element: <TimePage />,
+    element: <TimePage />,
   },
 ];
 
