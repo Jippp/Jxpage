@@ -3,6 +3,7 @@ import styled, { css } from "styled-components";
 
 import { pageTabs, HOME } from "@/config/routeConfig";
 import SimpleSlider from "@/components/Slider";
+import BlurGlass from "@/components/BlurGlass";
 import usePageTo from "@/hooks/usePageTo";
 
 // 去掉首页
@@ -12,7 +13,7 @@ const Home: FC = () => {
   const handlePageTo = usePageTo();
 
   return (
-    <SimpleSlider>
+    <SimpleSlider height="calc(100vh - 20px)">
       {/* 
         页面导航，鼠标上下滑动有动效，hover不同的tab和背景联动
         点击tab之后进入不同的页面，页面背景就是之前的背景
@@ -20,12 +21,12 @@ const Home: FC = () => {
       {showTabs.map(({ title, path, bgImg }) => (
         <ContainerBgItem key={path} bg={bgImg!} className="blurBg">
           <div className="content" onClick={() => handlePageTo(path)}>
-            <code className="content-desc blurGlass">
+            <BlurGlass className="content-desc">
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus
               sapiente nesciunt et vero modi ipsa illo a, asperiores,
               exercitationem optio consequatur tenetur nostrum aliquam dicta sit
               repellat ullam impedit quo.
-            </code>
+            </BlurGlass>
             <div className="content-title">{title}</div>
           </div>
         </ContainerBgItem>
@@ -60,6 +61,9 @@ const ContainerBgItem = styled.div<{ bg: string }>`
       &:hover {
         transform: translate(2px, 2px);
         box-shadow: 8px 8px 10px 8px rgba(0, 0, 0, 0.5);
+      }
+      &::after {
+        border-radius: 8px;
       }
     }
     .content-title {

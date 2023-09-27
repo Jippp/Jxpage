@@ -1,3 +1,24 @@
 .wrapper {
-  background-image: url('/src/assets/images/home_page_2.png');
+  .content {
+    background-image: url('/src/assets/images/home_page_2.png');
+    width: 100%;
+    min-height: 100vh;
+    position: absolute;
+    > div {
+      width: 80%;
+      margin: @topHeader auto 0;
+      .blurGlass-item {
+        width: 100%;
+        border-radius: 10px;
+        padding: 8px;
+        box-sizing: border-box;
+        > div {
+          width: calc(100% - 16px);
+        }
+        &::after {
+          border-radius: 10px;
+        }
+      }
+    }
+  }
 }

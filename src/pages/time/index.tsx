@@ -8,8 +8,10 @@ import Styles from "./style.module.less";
 
 const TimePage: FC<any> = () => {
   return (
-    <div className={cn(Styles.wrapper, "moduleWrapper blurBg")}>
-      <div>TimePage Loading...</div>
+    <div className={cn(Styles.wrapper, "moduleWrapper")}>
+      <div className={cn(Styles.content, "blurBg")}>
+        <div>TimePage Loading...</div>
+      </div>
     </div>
   );
 };

@@ -22,11 +22,7 @@ export default IndexPage;
 
 const Container = styled.div`
   .index-content {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     width: 100%;
-    min-height: 100%;
+    min-height: calc(100% - 20px);
   }
 `;
