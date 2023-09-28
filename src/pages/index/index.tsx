@@ -1,14 +1,20 @@
 import { FC } from "react";
 import styled from "styled-components";
 
+import LoadingPage from "@/components/commons/loading";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import useLogin from "@/hooks/useLogin";
 
 interface IndexProps {
   children: React.ReactNode;
 }
 
 const IndexPage: FC<IndexProps> = ({ children }) => {
+  const { loading: loginLoading } = useLogin();
+
+  if (loginLoading) return <LoadingPage />;
+
   return (
     <Container>
       <Header />

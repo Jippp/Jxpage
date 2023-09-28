@@ -20,9 +20,11 @@ module.exports = {
   },
   plugins: ['react-refresh', "prettier",],
   rules: {
+    'no-useless-catch': 'off',
     "prettier/prettier": "error",
     'react-refresh/only-export-components': 'off',
     '@typescript-eslint/no-non-null-assertion': 'off',
-    '@typescript-eslint/no-explicit-any': 'off'
+    '@typescript-eslint/no-explicit-any': 'off',
+    '@typescript-eslint/ban-types': 'off',
   },
 }
