@@ -29,7 +29,7 @@
 [简洁风](https://www.imshu.cc/?p=221)
 [这个很适合](https://www.lpolaris.com/category/%E4%BA%91%E7%A7%BB%E6%B0%91)
 
-定好了之后就按照定好的来做，不要半路有什么奇妙的想法然后改来改去的！！！
+备用：https://ubud-right.aspirethemes.com/
 
 #### 首页
 
