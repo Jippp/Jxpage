@@ -4,9 +4,9 @@
 import { FC } from "react";
 import cn from "classnames";
 
-import Screen from "./components/Screen";
-import Calendar from "./components/Calendar";
-import Total from "./components/Total";
+// import Screen from "./components/Screen";
+// import Calendar from "./components/Calendar";
+// import Total from "./components/Total";
 import Styles from "./style.module.less";
 
 const ClockInPage: FC = () => {
@@ -14,9 +14,9 @@ const ClockInPage: FC = () => {
     <div className={cn(Styles.wrapper, "moduleWrapper")}>
       <div className={cn(Styles.content, "blurBg")}>
         <div>
-          <Screen />
+          {/* <Screen />
           <Calendar />
-          <Total />
+          <Total /> */}
         </div>
       </div>
     </div>
