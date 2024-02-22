@@ -32,7 +32,13 @@ export const HeaderItemStyle = styled.div`
   &:last-of-type {
     margin-right: 0;
   }
+  &:not(.header-item-home):hover,
   &.header-item-active {
     color: #000;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+  }
+  &.header-item-active {
+    font-weight: 500;
   }
 `;

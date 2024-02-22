@@ -1,10 +1,10 @@
 import { FC } from "react";
 
-import { HomeListItemStyle } from "./styles";
+import { BlogItemStyle } from "./styles";
 
-const ListItem: FC<any> = () => {
+const ListItem: FC = () => {
   return (
-    <HomeListItemStyle>
+    <BlogItemStyle>
       <div className="item-description">
         <div className="item-description-time">10 OCT 2023</div>
         <div className="item-description-tag">记录</div>
@@ -17,7 +17,7 @@ const ListItem: FC<any> = () => {
         </p>
       </div>
       <div className="item-picture" />
-    </HomeListItemStyle>
+    </BlogItemStyle>
   );
 };
 

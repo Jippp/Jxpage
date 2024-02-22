@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import ListItem from "./item";
+import BlogItem from "@/components/blogItem";
 import { HomeStyle, HomeContentStyle, HomeListStyle } from "./styles";
 
 // import { pageTabs, HOME } from "@/config/routeConfig";
@@ -24,7 +24,7 @@ const Home: FC = () => {
           <h4>历史文章</h4>
         </div>
         <div className="list-container">
-          <ListItem />
+          <BlogItem />
         </div>
       </HomeListStyle>
     </HomeStyle>

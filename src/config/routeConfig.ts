@@ -2,6 +2,8 @@
 export const HOME = "/";
 /** 登录页 */
 export const LOGIN = "/login";
+/** blog页 */
+export const BLOG = "/blog";
 /** 打卡完成情况页 */
 export const CLOCKIN = "/clockIn";
 /** 留言页 */
@@ -22,6 +24,10 @@ export const pageTabs: PageTabItem[] = [
   {
     title: "首页",
     path: HOME,
+  },
+  {
+    title: "Blog",
+    path: BLOG,
   },
   {
     title: "打卡",
