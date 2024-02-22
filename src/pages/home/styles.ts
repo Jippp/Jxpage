@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import { FONTCOLOR } from "@/config/stylesConfig";
-import ContentPicture from "@/assets/images/content-picture.jpg";
+import ContentPicture from "@/assets/images/bg.png";
 
 /** 整体样式 */
 export const HomeStyle = styled.div`

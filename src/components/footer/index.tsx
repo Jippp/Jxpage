@@ -2,10 +2,17 @@ import { FC } from "react";
 
 import styled from "styled-components";
 
-import { BOTTOMFOTTERHEIGHT } from "@/config/stylesConfig";
+import { BOTTOMFOTTERHEIGHT, FONTCOLOR } from "@/config/stylesConfig";
 
 const Footer: FC<any> = () => {
-  return <FootStyle>CopyRight © 2023 J-ppp</FootStyle>;
+  return (
+    <FootStyle>
+      © {new Date().getFullYear()} · Jxppp ·{" "}
+      <a href="https://beian.miit.gov.cn/" target="_blank">
+        皖ICP备2024035024号
+      </a>
+    </FootStyle>
+  );
 };
 
 export default Footer;
@@ -18,4 +25,9 @@ const FootStyle = styled.div`
   align-items: center;
   line-height: ${BOTTOMFOTTERHEIGHT}px;
   font-size: 12px;
+  a {
+    margin-left: 4px;
+    text-decoration: none;
+    color: ${FONTCOLOR};
+  }
 `;
