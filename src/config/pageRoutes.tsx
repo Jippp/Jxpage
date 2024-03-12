@@ -2,10 +2,11 @@ import { RouteObject } from "react-router-dom";
 
 import delayLazy from "@/utils/delayLazy";
 
-import { LOGIN, BLOG, CLOCKIN, MESSAGE, TIME } from "./routeConfig";
+import { LOGIN, BLOG, BLOGDETAIL, CLOCKIN, MESSAGE, TIME } from "./routeConfig";
 
 const LoginPage = delayLazy(() => import("@/pages/login"));
 const BlogPage = delayLazy(() => import("@/pages/blog"));
+const BlogDetailPage = delayLazy(() => import("@/pages/blog/detail"));
 const ClockInPage = delayLazy(() => import("@/pages/clockIn"));
 const MessagePage = delayLazy(() => import("@/pages/message"));
 const TimePage = delayLazy(() => import("@/pages/time"));
@@ -18,6 +19,10 @@ const pageRouteConfigs: RouteObject[] = [
   {
     path: BLOG,
     element: <BlogPage />,
+  },
+  {
+    path: BLOGDETAIL,
+    element: <BlogDetailPage />,
   },
   {
     path: CLOCKIN,

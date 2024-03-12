@@ -17,9 +17,11 @@ function App() {
       To fix, updates that suspend should be wrapped with startTransition.
     */
     <ErrorBoundary fallback={<ErrorPage />}>
-      <Suspense fallback={<LoadingPage />}>
-        <PageLayout>{useRoutes(routeConfigs)}</PageLayout>
-      </Suspense>
+      <PageLayout>
+        <Suspense fallback={<LoadingPage />}>
+          {useRoutes(routeConfigs)}
+        </Suspense>
+      </PageLayout>
     </ErrorBoundary>
   );
 }

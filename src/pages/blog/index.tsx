@@ -1,44 +1,39 @@
 import { FC, useEffect } from "react";
-
-import Vditor from "vditor";
-import "vditor/dist/index.css";
+import { useImmer } from "use-immer";
+import { useMemoizedFn } from "ahooks";
 
 import BlogItem from "@/components/blogItem";
+import MdRender, { InitOptions } from "@/components/mdRender";
+import useRoute from "@/hooks/useRoute";
+import { BLOGDETAILPATH } from "@/config/routeConfig";
 import { BlogContainer, BlogHeader } from "./styles";
 
-/* 
-  blog相关功能：
-    1. 预览，从服务端获取
-    2. 在线编辑，支持保存、发布等功能
-*/
-
 const BlogPage: FC = () => {
-  // const [vd, setVd] = useState<Vditor>()
+  const [mdOptions, updateMdOptions] = useImmer<InitOptions>({});
+
+  const { push } = useRoute();
+
+  const handleToDetail = useMemoizedFn(() => {
+    push(`${BLOGDETAILPATH}/123`);
+  });
 
   useEffect(() => {
-    const vditor = new Vditor("vditor", {
-      height: 300,
-      width: "100%",
-      // after() {
-      //   setVd(vditor)
-      // }
+    updateMdOptions((d) => {
+      d.onAfter = (vditor) => {
+        // TODO 内容应该是从服务器动态获取的
+        vditor.setValue("## test二123级标题");
+      };
+      // TODO 添加保存到服务器的toolbar
+      d.extraToolbar = [];
     });
-    return () => {
-      vditor.destroy();
-      // setVd(undefined);
-    };
-  }, []);
+  }, [updateMdOptions]);
 
   return (
     <BlogContainer>
       <BlogHeader>Blog</BlogHeader>
-      <BlogItem />
-      <BlogItem />
-      <BlogItem />
-      <BlogItem />
-      <BlogItem />
+      <BlogItem onClick={handleToDetail} />
 
-      <div id="vditor" className="vditor" />
+      <MdRender {...mdOptions} />
     </BlogContainer>
   );
 };

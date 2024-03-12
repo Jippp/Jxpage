@@ -2,9 +2,18 @@ import { FC } from "react";
 
 import { BlogItemStyle } from "./styles";
 
-const ListItem: FC = () => {
+interface ListItemProps {
+  time?: string;
+  tag?: string;
+  shortTitle?: string;
+  content?: string;
+  onClick: () => void;
+}
+
+const ListItem: FC<ListItemProps> = (props) => {
+  const { onClick } = props;
   return (
-    <BlogItemStyle>
+    <BlogItemStyle onClick={onClick}>
       <div className="item-description">
         <div className="item-description-time">10 OCT 2023</div>
         <div className="item-description-tag">记录</div>

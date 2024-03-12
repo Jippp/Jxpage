@@ -4,6 +4,9 @@ export const HOME = "/";
 export const LOGIN = "/login";
 /** blog页 */
 export const BLOG = "/blog";
+/** blog详情页 */
+export const BLOGDETAILPATH = "/blog/detail";
+export const BLOGDETAIL = `${BLOGDETAILPATH}/:blogId`;
 /** 打卡完成情况页 */
 export const CLOCKIN = "/clockIn";
 /** 留言页 */
