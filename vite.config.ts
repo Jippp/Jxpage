@@ -5,8 +5,15 @@ import react from "@vitejs/plugin-react";
 // https://vitejs.dev/config/
 export default defineConfig({
   server: {
-    // port: 3000,
     open: "/",
+    proxy: {
+      // 开发环境代理配置
+      "/api": {
+        target: "http://47.116.21.62:1937",
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/api/, ""),
+      },
+    },
   },
   resolve: {
     // 路径别名配置

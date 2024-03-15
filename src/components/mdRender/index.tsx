@@ -21,16 +21,6 @@ const MdRender: FC<InitOptions> = (mdRenderProps) => {
 
   useEffect(() => {
     initVditor(mdRenderProps);
-    /*
-      {
-        // TODO 添加保存到服务器的toolbar
-        extraToolbar: [],
-        onAfter: (vditor) => {
-          // TODO 内容应该是从服务器动态获取的
-          vditor.setValue('## test二级标题')
-        }
-      } as InitOptions
-    */
   }, [initVditor, mdRenderProps]);
 
   return <div id="vditor" className="vditor" ref={vditorRef} />;

@@ -1,4 +1,4 @@
-const BASEURL = "http://localhost:937";
+const BASEURL = "/api";
 
 const createRequest = (
   method: string,
