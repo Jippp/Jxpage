@@ -9,6 +9,7 @@ export const BlogItemStyle = styled.div`
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
   .item-description {
     width: 16%;
     margin-right: 6%;
@@ -24,11 +25,15 @@ export const BlogItemStyle = styled.div`
   .item-content {
     margin-right: 4%;
     width: 54%;
+    max-height: 130px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    h1,
+    h2,
+    h3,
     h4 {
       margin: 0;
-    }
-    p {
-      margin-top: 8px;
+      margin-bottom: 8px;
     }
   }
   .item-picture {

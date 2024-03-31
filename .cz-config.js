@@ -16,6 +16,7 @@ module.exports = {
     { value: "📦️build", name: "📦️build: 打包" },
     { value: "👷ci", name: "👷CI: related changes" },
     { value: "🤩init", name: "🤩init: create project" },
+    { value: "🤡temp", name: "🤡temp: temp commit" },
   ],
   // Specify the scopes for your particular project
   scopes: [],

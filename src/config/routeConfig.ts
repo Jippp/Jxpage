@@ -7,6 +7,10 @@ export const BLOG = "/blog";
 /** blog详情页 */
 export const BLOGDETAILPATH = "/blog/detail";
 export const BLOGDETAIL = `${BLOGDETAILPATH}/:blogId`;
+/** 创建 */
+export const EDITBLOG = "/blog/edit";
+/** 修改 */
+export const UPDATEBLOG = "/blog/update";
 /** 打卡完成情况页 */
 export const CLOCKIN = "/clockIn";
 /** 留言页 */
