@@ -13,7 +13,7 @@ export const findAllBlog = () => {
 export const findByBlog = (data: Record<string, any>) => {
   return post("/blog/find", {
     body: JSON.stringify(data),
-  });
+  }) as Promise<FindBlogResponse>;
 };
 export const updateBlog = (data: Record<string, any>) => {
   return post("/blog/upload", {

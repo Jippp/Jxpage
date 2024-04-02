@@ -1,5 +1,5 @@
 import { useEffect, useRef } from "react";
-import highLight from "highlight.js";
+import hljs from "highlight.js/lib/core";
 import styled from "styled-components";
 // 主题文件：github、vs.css rainbow.css
 import "highlight.js/styles/github.css";
@@ -15,7 +15,7 @@ export default (props: IProps) => {
 
   useEffect(() => {
     if (codeRef.current) {
-      highLight.highlightBlock(codeRef.current);
+      hljs.highlightBlock(codeRef.current);
     }
   }, []);
 

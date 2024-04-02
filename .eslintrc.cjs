@@ -3,6 +3,7 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
+  // 继承其他的规则
   extends: [
     'eslint:recommended',
     "prettier",
@@ -18,6 +19,7 @@ module.exports = {
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
+  // 接入插件系统，补充eslint的能力
   plugins: ['react-refresh', "prettier",],
   rules: {
     'no-useless-catch': 'off',

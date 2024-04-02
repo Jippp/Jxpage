@@ -97,17 +97,15 @@ export interface APIRESPONSE {
 
 /** 连接数据库 */
 export const login = async () => {
-  const res = await get("/login");
-  return res.json();
+  return await get("/login");
 };
 
 /** 查找数据库内容 */
 export const findData = async (params: APIGETPARAMS) => {
   try {
-    const res = await post("/find", {
+    const data = (await post("/find", {
       body: JSON.stringify(params),
-    });
-    const data = (await res.json()) as APIRESPONSE;
+    })) as APIRESPONSE;
     return data && data.status === CodeEnums.SuccessCode
       ? (data.data as DATAITEM[])
       : [];
@@ -119,12 +117,9 @@ export const findData = async (params: APIGETPARAMS) => {
 /** 查找有则更新 没有新增 */
 export const findAndUpdate = async (params: APTSETPARAMS) => {
   try {
-    const res = await post("/findOneAndUpdate", {
+    return (await post("/findOneAndUpdate", {
       body: JSON.stringify(params),
-    });
-    return res.json() as Promise<
-      Pick<APIRESPONSE, "status"> & { data: DATAITEM }
-    >;
+    })) as Promise<Pick<APIRESPONSE, "status"> & { data: DATAITEM }>;
   } catch (error) {
     throw error;
   }
@@ -133,10 +128,9 @@ export const findAndUpdate = async (params: APTSETPARAMS) => {
 /** 添加进数据库 */
 export const createData = async (params: APTSETPARAMS) => {
   try {
-    const res = await post("/create", {
+    return (await post("/create", {
       body: JSON.stringify(params),
-    });
-    return res.json() as Promise<APIRESPONSE>;
+    })) as Promise<APIRESPONSE>;
   } catch (error) {
     throw error;
   }
@@ -145,10 +139,9 @@ export const createData = async (params: APTSETPARAMS) => {
 /** 更新数据库内容 */
 export const updateData = async (params: APTSETPARAMS) => {
   try {
-    const res = await post("/update", {
+    return (await post("/update", {
       body: JSON.stringify(params),
-    });
-    return res.json() as Promise<APIRESPONSE>;
+    })) as Promise<APIRESPONSE>;
   } catch (error) {
     throw error;
   }
