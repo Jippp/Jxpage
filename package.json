@@ -65,6 +65,7 @@
     "vite-plugin-image-optimizer": "^1.1.7"
   },
   "engines": {
+    "pnpm": ">=8",
     "node": ">=18"
   }
 }
