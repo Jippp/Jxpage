@@ -1,6 +1,7 @@
 import { useRequest } from "ahooks";
 import { createBlog, updateBlog, findByBlog, deleteBlog } from "@/api/blog";
 import { FindBlogResponse } from "@/api/response";
+import { FindBlogProps } from "@/api/types";
 import { Options } from "ahooks/lib/useRequest/src/types";
 
 export const useCreate = () => {
@@ -15,7 +16,7 @@ export const useCreate = () => {
   });
 };
 export const useFind = (
-  options?: Options<FindBlogResponse, Record<string, any>[]>,
+  options?: Options<FindBlogResponse, FindBlogProps[]>,
 ) => {
   return useRequest(findByBlog, {
     manual: true,

@@ -27,13 +27,18 @@ export const BlogItemStyle = styled.div`
     width: 54%;
     max-height: 130px;
     overflow: hidden;
-    text-overflow: ellipsis;
     h1,
     h2,
     h3,
     h4 {
       margin: 0;
       margin-bottom: 8px;
+    }
+    p {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical;
     }
   }
   .item-picture {

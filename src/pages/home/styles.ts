@@ -17,13 +17,13 @@ export const HomeContentStyle = styled.div`
   .content-left-description {
     flex: 0 1 calc(50% - 40px);
     height: calc(100% - 80px);
-    padding: 40px 0 40px 40px;
+    padding: 40px 10px 40px 40px;
     border-radius: 10px 0 0 10px;
     background-color: #f6f6f6;
   }
   .content-right-picture {
     flex: 0 1 50%;
-    height: 100%;
+    height: calc(100% - 80px);
     border-radius: 0 10px 10px 0;
     background: url(${ContentPicture}) no-repeat 0 0 / cover;
   }

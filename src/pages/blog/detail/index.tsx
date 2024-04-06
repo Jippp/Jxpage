@@ -27,7 +27,7 @@ const BlogDetail: FC = () => {
 
   useEffect(() => {
     if (params && params.blogId) {
-      findBlog({ id: params.blogId });
+      findBlog({ id: Number(params.blogId) });
     }
   }, [params, findBlog]);
 
