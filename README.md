@@ -5,16 +5,6 @@
 
 ### features/TODO
 
-markdown的获取和保存：
-  保存就是将当前的markdown转换成html，然后存到服务器上，然后在页面展示。
-  获取就是从服务器上获取，然后在页面展示。
-  后端要增加两个接口：getMarkdown、saveMarkdown
-  - getMarkdown(GET)：根据用户id和日期获取markdown，返回markdown的html
-  - saveMarkdown(POST)：根据用户id和日期，将markdown的html保存到服务器上
-    - 如果是修改的话，直接用原来的条件来更新服务器内容
-    - 如果是新建的话，就根据用户id和日期，保存进服务器
-    - 另外保存时，需要注意时间、标题、标签、缩略内容(前两行)这些字段，展示时需要用到。
-
 - [ ] 有账号登录界面，当然只有两个账号(最后补充一个)
  - [  ] 首页等待补充....
 - [ ] 打卡模块

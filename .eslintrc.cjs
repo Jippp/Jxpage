@@ -11,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react-hooks/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -20,7 +21,7 @@ module.exports = {
     tsconfigRootDir: __dirname,
   },
   // 接入插件系统，补充eslint的能力
-  plugins: ['react-refresh', "prettier",],
+  plugins: ['react-refresh', 'tailwindcss', "prettier"],
   rules: {
     'no-useless-catch': 'off',
     "prettier/prettier": "error",
@@ -31,6 +32,15 @@ module.exports = {
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
     '@typescript-eslint/no-unsafe-return': 'off',
-    '@typescript-eslint/no-unsafe-argument': 'off'
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    'tailwindcss/classnames-order': 'off',
+    'tailwindcss/no-custom-classname': 'off',
   },
+  
+  overrides: [
+    {
+      files: '**/*.{ts,tsx}',
+      parser: '@typescript-eslint/parser',
+    },
+  ],
 }

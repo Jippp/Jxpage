@@ -5,7 +5,7 @@ import ContentPicture from "@/assets/images/content-picture.jpg";
 export const BlogItemStyle = styled.div`
   width: 100%;
   height: 130px;
-  margin-bottom: 40px;
+  /* margin-bottom: 40px; */
   display: flex;
   align-items: center;
   border-bottom: 1px solid #eee;
@@ -32,7 +32,7 @@ export const BlogItemStyle = styled.div`
     h3,
     h4 {
       margin: 0;
-      margin-bottom: 8px;
+      margin-bottom: 10px;
     }
     p {
       overflow: hidden;
@@ -44,6 +44,6 @@ export const BlogItemStyle = styled.div`
   .item-picture {
     width: 20%;
     height: calc(100% - 40px);
-    background: url(${ContentPicture}) no-repeat center / cover;
+    background: url(${ContentPicture}) no-repeat center / contain;
   }
 `;

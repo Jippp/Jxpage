@@ -29,7 +29,7 @@ const PageLayout: FC<IndexProps> = ({ children }) => {
 export default PageLayout;
 
 const Layout = styled.div`
-  width: 90%;
+  width: 80%;
   height: 100%;
   margin: 0 auto;
   color: ${FONTCOLOR};

@@ -11,7 +11,7 @@ import { BlogItemStyle } from "./styles";
 const remarkPlugins = [gfm];
 
 const ListItem: FC<FindBlogResponse> = (props) => {
-  const { content, tags, createtime, id } = props;
+  const { title, contentStr, tags, createtime, id } = props;
 
   const { push } = useRoute();
 
@@ -30,7 +30,12 @@ const ListItem: FC<FindBlogResponse> = (props) => {
         </div>
       </div>
       <div className="item-content">
-        <ReactMarkdown remarkPlugins={remarkPlugins}>{content}</ReactMarkdown>
+        <h2 className="text-base font-bold hover:decoration-solid hover:underline underline-offset-4">
+          {title}
+        </h2>
+        <ReactMarkdown remarkPlugins={remarkPlugins}>
+          {contentStr}
+        </ReactMarkdown>
       </div>
       <div className="item-picture" />
     </BlogItemStyle>
