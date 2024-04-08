@@ -1,29 +1,41 @@
 import { FC } from "react";
-
+import { useMemoizedFn } from "ahooks";
+import dayjs from "dayjs";
+import ReactMarkdown from "react-markdown";
+import gfm from "remark-gfm";
+import { FindBlogResponse } from "@/api/response";
+import { BLOGDETAILPATH } from "@/config/routeConfig";
+import useRoute from "@/hooks/useRoute";
 import { BlogItemStyle } from "./styles";
 
-interface ListItemProps {
-  time?: string;
-  tag?: string;
-  shortTitle?: string;
-  content?: string;
-  onClick: () => void;
-}
+const remarkPlugins = [gfm];
 
-const ListItem: FC<ListItemProps> = (props) => {
-  const { onClick } = props;
+const ListItem: FC<FindBlogResponse> = (props) => {
+  const { title, contentStr, tags, createtime, id } = props;
+
+  const { push } = useRoute();
+
+  const handleToDetail = useMemoizedFn((id: number) => {
+    push(`${BLOGDETAILPATH}/${id}`);
+  });
+
   return (
-    <BlogItemStyle onClick={onClick}>
+    <BlogItemStyle onClick={() => handleToDetail(id)}>
       <div className="item-description">
-        <div className="item-description-time">10 OCT 2023</div>
-        <div className="item-description-tag">记录</div>
+        <div className="item-description-time">
+          {dayjs(createtime).format("YYYY.MM.DD")}
+        </div>
+        <div className="item-description-tag">
+          {tags[0] ? tags[0].name : ""}
+        </div>
       </div>
       <div className="item-content">
-        <h4>Lorem.</h4>
-        <p>
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Sapiente,
-          quis.
-        </p>
+        <h2 className="text-base font-bold hover:decoration-solid hover:underline underline-offset-4">
+          {title}
+        </h2>
+        <ReactMarkdown remarkPlugins={remarkPlugins}>
+          {contentStr}
+        </ReactMarkdown>
       </div>
       <div className="item-picture" />
     </BlogItemStyle>

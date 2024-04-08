@@ -26,7 +26,7 @@ const toolbar = [
 ];
 const upload = {
   fieldName: "file",
-  url: "http://localhost:1937/upload",
+  url: "/api/upload",
   max: CHUNKSIZE,
   format(_: File[], response: string) {
     const responseObj = JSON.parse(response);

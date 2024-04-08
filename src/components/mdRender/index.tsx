@@ -1,9 +1,15 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useEffect, useRef, memo } from "react";
+import Vditor from "vditor";
 import useInitRender, { InitOptions } from "./useInitRender";
 
 import "vditor/dist/index.css";
 
 export type { InitOptions } from "./useInitRender";
+
+export interface MdRenderProps {
+  renderProps: InitOptions;
+  getVditor: (vditor: Vditor) => void;
+}
 
 /* 
   blog相关功能：
@@ -14,26 +20,18 @@ export type { InitOptions } from "./useInitRender";
     另一个是在线编辑 内容为空
 */
 
-const MdRender: FC<InitOptions> = (mdRenderProps) => {
+const MdRender: FC<MdRenderProps> = ({ renderProps, getVditor }) => {
   const vditorRef = useRef<HTMLDivElement>(null);
 
   const initVditor = useInitRender();
 
   useEffect(() => {
-    initVditor(mdRenderProps);
-    /*
-      {
-        // TODO 添加保存到服务器的toolbar
-        extraToolbar: [],
-        onAfter: (vditor) => {
-          // TODO 内容应该是从服务器动态获取的
-          vditor.setValue('## test二级标题')
-        }
-      } as InitOptions
-    */
-  }, [initVditor, mdRenderProps]);
+    if (renderProps && Object.keys(renderProps).length) {
+      getVditor(initVditor(renderProps));
+    }
+  }, [initVditor, renderProps, getVditor]);
 
   return <div id="vditor" className="vditor" ref={vditorRef} />;
 };
 
-export default MdRender;
+export default memo(MdRender);

@@ -9,4 +9,7 @@ export const BlogHeader = styled.h1`
   padding: 10px 0 20px;
   margin: 0;
   border-bottom: 1px solid #eee;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 24px;
 `;

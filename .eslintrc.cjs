@@ -3,6 +3,7 @@
 module.exports = {
   root: true,
   env: { browser: true, es2020: true },
+  // 继承其他的规则
   extends: [
     'eslint:recommended',
     "prettier",
@@ -10,6 +11,7 @@ module.exports = {
     'plugin:@typescript-eslint/recommended',
     'plugin:@typescript-eslint/recommended-requiring-type-checking',
     'plugin:react-hooks/recommended',
+    'plugin:tailwindcss/recommended',
   ],
   parser: '@typescript-eslint/parser',
   parserOptions: {
@@ -18,7 +20,8 @@ module.exports = {
     project: ['./tsconfig.json'],
     tsconfigRootDir: __dirname,
   },
-  plugins: ['react-refresh', "prettier",],
+  // 接入插件系统，补充eslint的能力
+  plugins: ['react-refresh', 'tailwindcss', "prettier"],
   rules: {
     'no-useless-catch': 'off',
     "prettier/prettier": "error",
@@ -28,5 +31,16 @@ module.exports = {
     '@typescript-eslint/ban-types': 'off',
     '@typescript-eslint/no-unsafe-member-access': 'off',
     '@typescript-eslint/no-unsafe-assignment': 'off',
+    '@typescript-eslint/no-unsafe-return': 'off',
+    '@typescript-eslint/no-unsafe-argument': 'off',
+    'tailwindcss/classnames-order': 'off',
+    'tailwindcss/no-custom-classname': 'off',
   },
+  
+  overrides: [
+    {
+      files: '**/*.{ts,tsx}',
+      parser: '@typescript-eslint/parser',
+    },
+  ],
 }

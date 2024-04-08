@@ -16,8 +16,8 @@ export const HomeContentStyle = styled.div`
   height: 750px;
   .content-left-description {
     flex: 0 1 calc(50% - 40px);
-    height: calc(100% - 80px);
-    padding: 40px 0 40px 40px;
+    height: 100%;
+    padding: 40px 10px 40px 40px;
     border-radius: 10px 0 0 10px;
     background-color: #f6f6f6;
   }
@@ -25,14 +25,14 @@ export const HomeContentStyle = styled.div`
     flex: 0 1 50%;
     height: 100%;
     border-radius: 0 10px 10px 0;
-    background: url(${ContentPicture}) no-repeat 0 0 / cover;
+    background: url(${ContentPicture}) no-repeat center center / cover;
   }
 `;
 
 /** 下方列表的样式 */
 export const HomeListStyle = styled.div`
   width: 80%;
-  margin: 0 auto;
+  margin: 30px auto 0;
   .list-top {
     position: relative;
     &::after {
