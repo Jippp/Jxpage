@@ -7,12 +7,24 @@ import LoadingPage from "@/components/commons/loading";
 
 const StatusBoundary: FC<{
   children: React.ReactElement;
-}> = ({ children }) => {
+  loading?: boolean;
+  error?: boolean | Error;
+  /** 不支持suspence兼容 */
+  hasSuspence?: boolean;
+}> = ({ hasSuspence = true, loading, error, children }) => {
   return (
-    // 使用nextjs 支持suspence以及use来处理
-    <ErrorBoundary fallback={<ErrorPage />}>
-      <Suspense fallback={<LoadingPage />}>{children}</Suspense>
-    </ErrorBoundary>
+    <>
+      {hasSuspence ? (
+        <>
+          {/* 使用nextjs 支持suspence以及use来处理 */}
+          <ErrorBoundary fallback={<ErrorPage />}>
+            <Suspense fallback={<LoadingPage />}>{children}</Suspense>
+          </ErrorBoundary>
+        </>
+      ) : (
+        <>{loading ? <LoadingPage /> : error ? <ErrorPage /> : children}</>
+      )}
+    </>
   );
 };
 

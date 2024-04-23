@@ -48,10 +48,11 @@ const CreatetBlog: FC = () => {
       const mkStr = vditorRef.current.getValue();
       const mkJson = JSON.parse(vditorRef.current.exportJSON(mkStr));
       createBlog({
-        userName: "一二一",
+        userName: "Jxppp",
         title: blogTitleRef.current!.value,
         content: vditorRef.current.getValue(),
         contentStr: getStringFromMarkdown(mkJson.Children),
+        tags: "前端工程化",
         // TODO
         // 标签：写死的一些标签，然后保存时出弹窗提示。
         // 弹窗有：标签，内容摘要。封面。总之就是抄掘金的 hhhhh
